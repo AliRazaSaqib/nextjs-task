@@ -40,8 +40,6 @@ export const apiManager = async (
     ...header,
   };
 
-  console.log(body, method, baseURL, header);
-
   try {
     return await axiosInstance({
       method: method,
