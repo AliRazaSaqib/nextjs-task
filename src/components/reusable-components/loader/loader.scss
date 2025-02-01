@@ -1,0 +1,30 @@
+.loader {
+  @apply w-12 h-12 border-2 border-black rounded-full inline-block relative box-border;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after,
+.loader::before {
+  content: "";
+  @apply box-border absolute bg-green-500 w-1.5 h-1.5 rounded-full;
+  left: 0;
+  top: 0;
+  transform: translate(150%, 150%);
+}
+
+.loader::before {
+  left: auto;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  transform: translate(-150%, -150%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

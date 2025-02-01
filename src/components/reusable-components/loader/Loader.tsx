@@ -1,8 +1,7 @@
-import LoaderSvg from "@/assets/svg/LoaderSvg";
 import React from "react";
-
+import "./loader.scss";
 const Loader = () => {
-  return <LoaderSvg />;
+  return <span className="loader"></span>;
 };
 
 export default Loader;

@@ -1,0 +1,6 @@
+h1 {
+  @apply font-bold text-center mb-4 text-[58px];
+  background: -webkit-linear-gradient(black, theme("colors.green.400"));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
