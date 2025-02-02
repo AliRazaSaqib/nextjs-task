@@ -5,7 +5,7 @@ import ContentPreloader from "@/store/ContentPreloader";
 
 const Home = async () => {
   await store.dispatch(getUserContentThunk());
-  const userContent = store.getState().content.userContent;
+  const userContent = store.getState().content;
 
   return (
     <>

@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getUserContentThunk } from "./contentThunk";
 import { iContentData } from "@/types/types";
 
-interface ContentState {
-  userContent: iContentData;
+export interface iStoreContent {
+  data: iContentData[];
   loading: boolean;
 }
 
-const initialState: ContentState = {
-  userContent: {} as iContentData,
+const initialState: iStoreContent = {
+  data: [],
   loading: true,
 };
 
@@ -16,15 +16,14 @@ const contentSlice = createSlice({
   name: "content",
   initialState,
   reducers: {
-    rehydrateContent(state, action: PayloadAction<iContentData>) {
-      console.log("test :", action.payload);
-      state.userContent = action.payload;
+    rehydrateContent(state, action: PayloadAction<iStoreContent>) {
+      state.data = action.payload.data;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getUserContentThunk.fulfilled, (state, action) => {
-        state.userContent = action.payload;
+        state.data = action.payload;
         state.loading = false;
       })
       .addCase(getUserContentThunk.pending, (state) => {
